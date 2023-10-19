@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YESTERDAY</title>
+</head>
+<body>
+    <h1>TASKS</h1>
+    <ul>
+        <li><a href="#" onclick="solveTask1()">TASK 1</a></li>
+        <li><a href="#" onclick="solveTask2()">TASK 2</a></li>
+        <li><a href="#" onclick="solveTask3()">TASK 3</a></li>
+        <li><a href="#" onclick="solveTask4()">TASK 4</a></li>
+    </ul>
+    <h1>SOLUTION</h1>
+    <div id="solution"></div>
+
+    <script>
+        function solveTask1() {
+            var num1 = parseFloat(prompt("FIRST NUMBER:"));
+            var num2 = parseFloat(prompt("SECOND NUMBER:"));
+            var result = compareNumbers(num1, num2);
+            displayResult("TASK 1:", result);
+        }
+
+        function compareNumbers(num1, num2) {
+            if (num1 > num2) {
+                return 1;
+            } else if (num1 < num2) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
+        function solveTask2() {
+            var bgColor = prompt("BACKGROUND COLOR:");
+            var textColor = prompt("COLOR:");
+            var text = prompt("TEXT:");
+            var paragraph = createStyledParagraph(bgColor, textColor, text);
+            displayResult("TASK 2:", paragraph);
+        }
+
+        function solveTask3() {
+            var length = parseFloat(prompt("LENGHT:"));
+            var width = parseFloat(prompt("WIDHT:"));
+            var area = calculateArea(length, width);
+            displayResult("TASK 3:", area);
+        }
+
+        function solveTask4() {
+            var num1 = parseFloat(prompt("FIRST NUMBER:"));
+            var num2 = parseFloat(prompt("SECOND NUMBER:"));
+            var result = operateNumbers(num1, num2);
+            displayResult("TASK 4:", result);
+        }
+
+        function displayResult(taskDescription, result) {
+            var resultDiv = document.getElementById("solution");
+            var resultParagraph = document.createElement("p");
+            resultParagraph.textContent = taskDescription;
+            resultParagraph.appendChild(result);
+            resultDiv.appendChild(resultParagraph);
+        }
+
+        function compareNumbers(num1, num2) {
+            if (num1 > num2) {
+                return 1;
+            } else if (num1 < num2) {
+                return -1;
+            } else {
+                return 0;
+            }
+        }
+
+        function createStyledParagraph(bgColor, textColor, text) {
+            var paragraph = document.createElement("p");
+            paragraph.style.backgroundColor = bgColor;
+            paragraph.style.color = textColor;
+            paragraph.textContent = text;
+            return paragraph;
+        }
+
+        function calculateArea(length, width) {
+            if (width === undefined) {
+                return length * length;
+            } else {
+                return length * width;
+            }
+        }
+
+        function operateNumbers(num1, num2) {
+            if (num1 % 2 === 0 && num2 % 2 === 0) {
+                return num1 * num2;
+            } else if (num1 % 2 !== 0 && num2 % 2 !== 0) {
+                return num1 + num2;
+            } else {
+                return num1 % 2 !== 0 ? num1 : num2;
+            }
+        }
+            
+    </script>
+</body>
+</html>
